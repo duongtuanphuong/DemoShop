@@ -1,6 +1,7 @@
 package com.example.demo.payload.request;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class CreateProductRequest {
@@ -12,7 +13,7 @@ public class CreateProductRequest {
 
     private int quantity;
 
-    private String thumbnail;
+//    private MultipartFile thumbnail;
 
     private long categoryId;
 }
