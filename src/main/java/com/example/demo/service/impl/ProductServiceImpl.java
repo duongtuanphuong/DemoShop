@@ -74,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
             product.setQuantity(req.getQuantity());
 
             if (file != null) {
-                imageService.deleteImage(product.getThumbnail());
+                // imageService.deleteImage(product.getThumbnail());
 
                 String thumbnailPath = imageService.uploadImage(file);
                 product.setThumbnail(thumbnailPath);
@@ -93,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
         Optional<Product> rs = productRepository.findById(id);
         if(rs.isPresent()){
             Product product = rs.get();
-            imageService.deleteImage(product.getThumbnail());
+            // imageService.deleteImage(product.getThumbnail());
             productRepository.delete(product);
         }
     }

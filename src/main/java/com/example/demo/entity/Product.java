@@ -24,7 +24,7 @@ public class Product {
 
     private String thumbnail;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 }
