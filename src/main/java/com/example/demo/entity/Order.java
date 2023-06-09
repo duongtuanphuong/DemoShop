@@ -30,7 +30,5 @@ public class Order {
 
     private String phone;
 
-    @OneToMany(mappedBy = "order")
-    @JsonManagedReference
-    public Set<OrderItem> orderItems;
+
 }

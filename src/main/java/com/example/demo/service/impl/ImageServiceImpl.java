@@ -19,18 +19,18 @@ public class ImageServiceImpl  implements ImageService {
     @Override
     public String uploadImage(MultipartFile file) throws IOException {
         File uploadDirectory = new File(UPLOAD_DIRECTORY);
-//        if (!uploadDirectory.exists()) {
-//            uploadDirectory.mkdirs();
-//        }
+       if (!uploadDirectory.exists()) {
+           uploadDirectory.mkdirs();
+       }
         String uid = UUID.randomUUID().toString();
 
         String originalFilename = file.getOriginalFilename();
-        String newFilename = uid + "_" + originalFilename;
+        // String newFilename = uid + "_" + originalFilename;
 
-        Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, newFilename);
+        Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, originalFilename);
         Files.write(fileNameAndPath, file.getBytes());
 
-        return newFilename;
+        return originalFilename;
     }
 
     @Override

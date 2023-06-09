@@ -34,17 +34,18 @@ public class OrderServiceImpl implements OrderService {
         order.setName(req.getName());
         order.setEmail(req.getEmail());
         order.setPhone(req.getPhone());
+        orderRepository.save(order);
+
         Set<OrderItem> orderItems = new HashSet<>();
         for(CreateOrderItemRequest rq : req.getOrderItems()){
             OrderItem orderItem = new OrderItem();
             orderItem.setName(rq.getName());
             orderItem.setPrice(rq.getPrice());
             orderItem.setQuantity(rq.getQuantity());
+            orderItem.setOrder(order);
             orderItems.add(orderItem);
         }
-        order.setOrderItems(orderItems);
         orderItemRepository.saveAll(orderItems);
-        orderRepository.save(order);
         
         return order;
     }
