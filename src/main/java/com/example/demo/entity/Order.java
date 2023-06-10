@@ -30,5 +30,6 @@ public class Order {
 
     private String phone;
 
-
+    @OneToMany(mappedBy = "order")
+    private Set<OrderItem>orderItems;
 }
